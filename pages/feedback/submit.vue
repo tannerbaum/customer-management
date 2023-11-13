@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import * as zod from "zod";
+import { feedbackFormSchema } from "../../server/zodSchemas";
 
-const validationSchema = toTypedSchema(
-  zod.object({
-    email: zod.string().email().min(1, "Email is required"),
-    name: zod.string().min(1, "Name is required"),
-    feedback: zod.string().min(1, "Feedback is required"),
-    sentiment: zod.enum(["happy", "neutral", "unhappy"]),
-  })
-);
+const validationSchema = toTypedSchema(feedbackFormSchema);
 
-const onSubmit = (values: any) => {
-  alert(JSON.stringify(values, null, 2));
+const onSubmit = async (values: any) => {
+  const test = await $fetch("/api/feedback", {
+    method: "POST",
+    body: values,
+  });
+  console.log(test);
 };
 </script>
 <template>
