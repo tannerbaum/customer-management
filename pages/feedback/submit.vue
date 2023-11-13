@@ -8,7 +8,6 @@ const onSubmit = async (values: any) => {
     method: "POST",
     body: values,
   });
-  console.log(test);
 };
 </script>
 <template>

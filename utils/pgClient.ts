@@ -1,5 +1,6 @@
 import pg from "pg";
 
+// TODO: replace these not so secret secrets with envs
 const pool = new pg.Pool({
   user: "tannerhoisington",
   host: "localhost",
