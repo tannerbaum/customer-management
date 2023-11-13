@@ -4,7 +4,7 @@ const { filters, filteredFeedbackItems, totalFeedbackItems, onClick } =
   useFeedbackItems(data);
 </script>
 <template>
-  <div class="p-16">
+  <Layout class="p-16">
     <div class="flex justify-center">
       <div class="mb-8 flex gap-2">
         <FeedbackFilter
@@ -41,5 +41,5 @@ const { filters, filteredFeedbackItems, totalFeedbackItems, onClick } =
       v-if="filteredFeedbackItems"
       :feedback-items="filteredFeedbackItems"
     />
-  </div>
+  </Layout>
 </template>

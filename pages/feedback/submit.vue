@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import * as zod from "zod";
 import { feedbackFormSchema } from "../../server/zodSchemas";
 
 const validationSchema = toTypedSchema(feedbackFormSchema);
@@ -13,7 +12,7 @@ const onSubmit = async (values: any) => {
 };
 </script>
 <template>
-  <div class="p-16">
+  <Layout class="p-16">
     <Form
       class="flex flex-col gap-3"
       :validationSchema="validationSchema"
@@ -85,5 +84,5 @@ const onSubmit = async (values: any) => {
 
       <button class="rounded border-2 py-2 mt-6">Submit</button>
     </Form>
-  </div>
+  </Layout>
 </template>

@@ -1,4 +1,4 @@
 <script setup lang="ts"></script>
 <template>
-  <NuxtWelcome />
+  <Layout> Home </Layout>
 </template>
