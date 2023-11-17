@@ -10,7 +10,7 @@ const currentRoute = router.currentRoute;
       class="font-bold text-blue-500"
       >&lt;-- Back home</NuxtLink
     >
-    <div class="container mx-auto mt-4 md:px-8 xl:px-14">
+    <div class="container mx-auto pt-4 md:px-8 xl:px-14">
       <slot />
     </div>
   </div>
