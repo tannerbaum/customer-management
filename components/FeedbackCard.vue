@@ -17,7 +17,7 @@ const humanFriendlyDate = (isoString: string) =>
 <template>
   <div
     :class="[
-      'max-w-md p-4 rounded-md bg-gray-100 text-slate-600 shadow-lg',
+      'max-w-md p-4 rounded-md bg-stone-100 text-slate-600 shadow-lg',
       {
         happy: 'shadow-emerald-300/50',
         neutral: 'shadow-gray-400/50',
