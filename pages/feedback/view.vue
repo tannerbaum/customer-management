@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: add refresh button
 const { data, pending, refresh } = await useFetch("/api/feedback");
 const { filters, filteredFeedbackItems, totalFeedbackItems, onClick } =
   useFeedbackItems(data);

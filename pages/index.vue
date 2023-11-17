@@ -1,4 +1,4 @@
-<script setup lang="ts"></script>
+<script setup lang="ts" />
 <template>
   <Layout>
     <h1
@@ -7,38 +7,33 @@
       Customer Management Inc
     </h1>
     <p
-      class="text-xl text-center font-extrabold text-blue-400 mt-4 max-w-xl mx-auto"
+      class="text-xl text-center font-extrabold text-blue-400 mt-6 mb-14 max-w-xl mx-auto"
     >
       The customer is always right. But what about when they aren't? We aren't
       managing that, but we are managing their feedback.
     </p>
-    <div class="mt-8 text-blue-400">Recent Feedback:</div>
-    <div class="flex justify-center gap-12">
-      <div class="bg-slate-500 rounded-xl p-8 basis-1/2 max-w-md">
-        <h2 class="text-center mb-4">View others' feedback</h2>
-        <p class="mb-4">
-          In this application, everyone's name and feedback is publicly visible.
-          Questionable? Sure. Good for demos? You bet.
-        </p>
-        <NuxtLink to="/feedback/view">
-          <button class="h-10 px-6 rounded-lg bg-blue-900 text-white">
-            View
-          </button>
-        </NuxtLink>
-      </div>
+    <Hero />
+    <div class="flex justify-center mt-8">
       <div
-        class="bg-slate-100 text-slate-700 rounded-xl p-8 basis-1/2 max-w-md"
+        class="bg-slate-100 text-slate-700 text-center rounded-xl p-8 max-w-md"
       >
-        <h2 class="text-center mb-4">Submit your own feedback</h2>
+        <h2 class="mb-4 font-extrabold tracking-tight">
+          Submit your own feedback
+        </h2>
         <p class="mb-4">
           Inspired to leave your own feedback? It's a simple form away.
         </p>
         <NuxtLink to="/feedback/submit">
-          <button class="h-10 px-6 rounded-lg bg-blue-900 text-white">
+          <button class="h-10 w-48 px-6 rounded-lg bg-blue-900 text-white">
             Submit Feedback
           </button>
         </NuxtLink>
       </div>
     </div>
+    <footer class="italic text-blue-400 text-sm mt-16 pb-8 px-4">
+      Made by Tanner Hoisington over the course of 5 days when I could find
+      time. Let the record show that even with more time, the I'm still not a
+      designer 💀.
+    </footer>
   </Layout>
 </template>
