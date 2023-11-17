@@ -56,7 +56,7 @@ const onSubmit = async (values: any) => {
           <Field id="happy" name="sentiment" type="radio" value="happy" />
           <label class="sr-only" for="happy">Happy</label>
           <div aria-hidden="true">
-            <FeedbackFilter class="bg-green-300" componentType="div" isActive
+            <FeedbackFilter class="bg-emerald-300" componentType="div" isActive
               >Happy</FeedbackFilter
             >
           </div>

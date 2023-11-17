@@ -1,8 +1,11 @@
 <script setup lang="ts">
-// TODO: add refresh button
 const { data, pending, refresh } = await useFetch("/api/feedback");
 const { filters, filteredFeedbackItems, totalFeedbackItems, onClick } =
   useFeedbackItems(data);
+
+const onRefreshClick = () => {
+  refresh();
+};
 </script>
 <template>
   <Layout class="p-16">
@@ -12,7 +15,9 @@ const { filters, filteredFeedbackItems, totalFeedbackItems, onClick } =
           :is-active="filters.happy"
           :count="totalFeedbackItems.happy"
           :class="
-            filters.happy ? 'bg-green-300 border-green-300' : 'border-green-300'
+            filters.happy
+              ? 'bg-emerald-300 border-emerald-300'
+              : 'border-emerald-300'
           "
           @click="onClick({ ...filters, happy: !filters.happy })"
           >Happy</FeedbackFilter
@@ -30,7 +35,7 @@ const { filters, filteredFeedbackItems, totalFeedbackItems, onClick } =
           :is-active="filters.unhappy"
           :count="totalFeedbackItems.unhappy"
           :class="
-            filters.unhappy ? 'bg-red-300 border-red-300' : 'border-red-300'
+            filters.unhappy ? 'bg-rose-300 border-rose-300' : 'border-rose-300'
           "
           @click="onClick({ ...filters, unhappy: !filters.unhappy })"
           >Unhappy</FeedbackFilter
@@ -42,5 +47,13 @@ const { filters, filteredFeedbackItems, totalFeedbackItems, onClick } =
       v-if="filteredFeedbackItems"
       :feedback-items="filteredFeedbackItems"
     />
+    <div class="mt-16 flex justify-center">
+      <button
+        class="text-black w-28 h-8 px-6 rounded-lg bg-blue-400"
+        @click="onRefreshClick"
+      >
+        Refresh
+      </button>
+    </div>
   </Layout>
 </template>

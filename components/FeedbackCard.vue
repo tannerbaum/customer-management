@@ -17,11 +17,11 @@ const humanFriendlyDate = (isoString: string) =>
 <template>
   <div
     :class="[
-      'max-w-md p-4 rounded-md bg-gray-100 border-2 text-slate-600',
+      'max-w-md p-4 rounded-md bg-gray-100 text-slate-600 shadow-lg',
       {
-        happy: 'border-green-300',
-        neutral: 'border-gray-400',
-        unhappy: 'border-red-300',
+        happy: 'shadow-emerald-300/50',
+        neutral: 'shadow-gray-400/50',
+        unhappy: 'shadow-rose-300/50',
       }[feedbackItem.sentiment],
     ]"
   >
@@ -35,7 +35,7 @@ const humanFriendlyDate = (isoString: string) =>
         {{ sentimentEmoji[feedbackItem.sentiment] }}
       </div>
     </div>
-    <div class="text-md">{{ feedbackItem.feedbacktext }}</div>
+    <div class="text-md line-clamp-3">{{ feedbackItem.feedbacktext }}</div>
     <div class="text-sm font-semibold mt-2 text-right">
       - {{ feedbackItem.name }}
     </div>
