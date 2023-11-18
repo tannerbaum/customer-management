@@ -1,5 +1,6 @@
-import { query } from "~/utils/pgClient";
+import supabase from "~/utils/pgClient";
 import { feedbackFormSchema } from "../zodSchemas";
+import { tableName } from "~/utils/constants";
 
 export default defineEventHandler(async (event) => {
   let body;
@@ -13,12 +14,14 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  // Turns out it is a bad practice to use template strings for the query!
-  const text =
-    "INSERT INTO feedback(name, email, feedbacktext, sentiment) VALUES($1, $2, $3, $4)";
-  const values = [body.name, body.email, body.feedback, body.sentiment];
+  const { error } = await supabase.from(tableName).insert({ ...body });
 
-  await query(text, values);
+  if (error) {
+    throw createError({
+      statusCode: parseInt(error.code),
+      statusMessage: error.message,
+    });
+  }
 
   return "success";
 });

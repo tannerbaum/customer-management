@@ -1,14 +1,10 @@
-import pg from "pg";
+import { createClient } from "@supabase/supabase-js";
+import type { Database } from "~/types/supabase";
 
-// TODO: replace these not so secret secrets with envs
-const pool = new pg.Pool({
-  user: "tannerhoisington",
-  host: "localhost",
-  database: "customermanagement",
-  password: "postgres",
-  port: 5432,
-});
+// better would be one of those env libraries to ensure they are set
+const supabase = createClient<Database>(
+  process.env.SUPABASE_URL ?? "",
+  process.env.SUPABASE_KEY ?? ""
+);
 
-export const query = (text: string, params?: any) => {
-  return pool.query(text, params);
-};
+export default supabase;

@@ -4,7 +4,7 @@ import { feedbackFormSchema } from "../../server/zodSchemas";
 const validationSchema = toTypedSchema(feedbackFormSchema);
 
 const onSubmit = async (values: any) => {
-  const test = await $fetch("/api/feedback", {
+  await $fetch("/api/feedback", {
     method: "POST",
     body: values,
   });
