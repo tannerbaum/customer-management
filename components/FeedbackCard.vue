@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import parseIso from "date-fns/parseISO";
 import format from "date-fns/format";
-import type { Feedback } from "~/server/types";
+import type { Feedback } from "~/composables/useFeedbackItems";
 
 const sentimentEmoji = {
   happy: "😀",
@@ -28,7 +28,7 @@ const humanFriendlyDate = (isoString: string) =>
     <div
       class="flex justify-between items-center border-b-2 border-gray-400 pb-2 mb-4"
     >
-      <div class="text-xs italic">
+      <div v-if="feedbackItem.timestamp" class="text-xs italic">
         {{ humanFriendlyDate(feedbackItem.timestamp) }}
       </div>
       <div class="text-lg">

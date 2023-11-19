@@ -1,4 +1,7 @@
-import type { Feedback } from "~/server/types";
+// import type { Feedback } from "~/server/types";
+import type { Database } from "~/types/supabase";
+
+export type Feedback = Database["public"]["Tables"]["feedback"]["Row"];
 
 type ApiResponse = Ref<{
   feedback: Feedback[];

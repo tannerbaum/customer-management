@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Feedback } from "~/server/types";
+import type { Feedback } from "~/composables/useFeedbackItems";
 
 const { feedbackItems } = defineProps<{ feedbackItems: Feedback[] }>();
 </script>
