@@ -13,7 +13,7 @@ const onSubmit = async (values: any) => {
 <template>
   <Layout class="p-16">
     <Form
-      class="flex flex-col gap-3"
+      class="flex flex-col gap-3 text-black"
       :validationSchema="validationSchema"
       @submit="onSubmit"
     >
