@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import parseIso from "date-fns/parseISO";
-import format from "date-fns/format";
+import { format, parseISO } from "date-fns";
 import type { Feedback } from "~/composables/useFeedbackItems";
 
 const sentimentEmoji = {
@@ -12,7 +11,7 @@ const sentimentEmoji = {
 const { feedbackItem } = defineProps<{ feedbackItem: Feedback }>();
 
 const humanFriendlyDate = (isoString: string) =>
-  format(parseIso(isoString), "dd.MM.yyyy HH:mm");
+  format(parseISO(isoString), "dd.MM.yyyy HH:mm");
 </script>
 <template>
   <div
