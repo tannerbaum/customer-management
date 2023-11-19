@@ -14,7 +14,12 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const { error } = await supabase.from(tableName).insert({ ...body });
+  const { error } = await supabase.from(tableName).insert({
+    email: body.email,
+    feedbacktext: body.feedback,
+    name: body.name,
+    sentiment: body.sentiment,
+  });
 
   if (error) {
     throw createError({

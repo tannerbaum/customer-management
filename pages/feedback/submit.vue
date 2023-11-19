@@ -1,13 +1,24 @@
 <script setup lang="ts">
 import { feedbackFormSchema } from "../../server/zodSchemas";
+import { type FormActions } from "vee-validate";
+
+const submissionFailed = ref(false);
 
 const validationSchema = toTypedSchema(feedbackFormSchema);
 
-const onSubmit = async (values: any) => {
-  await $fetch("/api/feedback", {
-    method: "POST",
-    body: values,
-  });
+const onSubmit = async (values: any, { resetForm }: FormActions<any>) => {
+  submissionFailed.value = false;
+  try {
+    // I would prefer to use useFetch but support for POST requests doesn't seem to be fully there.
+    await $fetch("/api/feedback", {
+      method: "POST",
+      body: values,
+    });
+    alert("Feedback submitted successfully!");
+    resetForm();
+  } catch (error) {
+    submissionFailed.value = true;
+  }
 };
 </script>
 <template>
@@ -25,7 +36,7 @@ const onSubmit = async (values: any) => {
           type="text"
           class="border-2 rounded-md h-8 border-blue-400"
         />
-        <ErrorMessage class="text-red-300" name="name" />
+        <ErrorMessage class="text-red-500" name="name" />
       </div>
 
       <div class="flex flex-col">
@@ -36,7 +47,7 @@ const onSubmit = async (values: any) => {
           type="email"
           class="border-2 rounded-md h-8 border-blue-400"
         />
-        <ErrorMessage class="text-red-300" name="email" />
+        <ErrorMessage class="text-red-500" name="email" />
       </div>
 
       <div class="flex flex-col">
@@ -48,7 +59,7 @@ const onSubmit = async (values: any) => {
           as="textarea"
           class="border-2 rounded-md h-28 border-blue-400"
         />
-        <ErrorMessage class="text-red-300" name="feedback" />
+        <ErrorMessage class="text-red-500" name="feedback" />
       </div>
 
       <fieldset class="flex justify-center gap-4 mt-4">
@@ -86,6 +97,9 @@ const onSubmit = async (values: any) => {
       >
         Submit
       </button>
+      <div v-if="submissionFailed">
+        <p class="text-red-500">Submission failed. Please try again.</p>
+      </div>
     </Form>
   </Layout>
 </template>
