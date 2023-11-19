@@ -8,11 +8,10 @@ This sample project was created somewhere in the 15-20 hour range over the cours
 
 Set the envs defined in .env.example (obviously only I have these)
 
-´´´
+```
 npm install
 npm run dev
-
-´´´
+```
 
 Unit tests can be run with `npm run test` and don't require envs to be set.
 
