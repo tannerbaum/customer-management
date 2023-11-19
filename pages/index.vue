@@ -31,8 +31,8 @@
       </div>
     </div>
     <footer class="italic text-blue-400 text-sm mt-16 pb-8 px-4">
-      Made by Tanner Hoisington over the course of 5 days when I could find
-      time. Let the record show that even with more time, the I'm still not a
+      Made by Tanner Hoisington over the course of a week when he could find
+      time. Let the record show that even with more time, he is still not a
       designer 💀.
     </footer>
   </Layout>

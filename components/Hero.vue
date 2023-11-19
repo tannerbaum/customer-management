@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Feedback } from "~/server/types";
-
 const { data } = await useFetch("/api/feedback");
 
 const fallbackItem: Feedback = {
@@ -32,7 +30,7 @@ onMounted(() => {
     class="mt-8 flex flex-col-reverse border-dashed border-4 border-slate-500 rounded-lg md:flex-row md:basis-96"
   >
     <div
-      class="flex flex-col gap-2 justify-center bg-slate-500 py-10 px-12 sm:basis-1/2 lg:basis-2/3 md:max-w-lg"
+      class="flex flex-col gap-2 justify-center items-center bg-slate-500 py-10 px-12 sm:basis-1/2 md:max-w-lg md:items-start lg:basis-2/3"
     >
       <h2 class="mb-4 text-3xl">View others' feedback</h2>
       <p class="mb-6">

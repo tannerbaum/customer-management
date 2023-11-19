@@ -2,4 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@vee-validate/nuxt", "nuxt-vitest"],
+  nitro: {
+    preset: "netlify",
+  },
 });

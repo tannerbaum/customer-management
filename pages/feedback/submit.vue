@@ -62,7 +62,7 @@ const onSubmit = async (values: any, { resetForm }: FormActions<any>) => {
         <ErrorMessage class="text-red-500" name="feedback" />
       </div>
 
-      <fieldset class="flex justify-center gap-4 mt-4">
+      <fieldset class="flex flex-wrap justify-center gap-4 mt-4">
         <div class="flex justify-center gap-2">
           <Field id="happy" name="sentiment" type="radio" value="happy" />
           <label class="sr-only" for="happy">Happy</label>
