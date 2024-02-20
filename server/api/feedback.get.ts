@@ -1,5 +1,4 @@
 import supabase from "~/utils/pgClient";
-import { Feedback } from "../types";
 import { tableName } from "~/utils/constants";
 
 export default defineEventHandler(async () => {
